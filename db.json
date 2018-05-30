@@ -370,5 +370,45 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "address": "Rua sal",
+      "number": "12",
+      "optionalAddress": "",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "quantity": 3,
+          "menuId": "chocpop"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "address": "rua pedra",
+      "number": "90",
+      "optionalAddress": "uhu",
+      "paymentOption": "DEB",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "burger"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "address": "rua teste",
+      "number": "10",
+      "optionalAddress": "haha",
+      "paymentOption": "DEB",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "espreso"
+        }
+      ],
+      "id": 3
+    }
+  ]
 }
