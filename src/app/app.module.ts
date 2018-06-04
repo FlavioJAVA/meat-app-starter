@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { ROUTES } from './app.routes';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +19,7 @@ import { ShoppingCartComponent } from './restaurants/restaurant-detail/shopping-
 import { ReviewsComponent } from './restaurants/restaurant-detail/reviews/reviews.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -31,16 +34,17 @@ import { CoreModule } from './core/core.module';
 		ShoppingCartComponent,
 		MenuItemComponent,
 		ReviewsComponent,
-		OrderSummaryComponent
+		OrderSummaryComponent,
+		NotFoundComponent
 	],
 	imports: [
 		BrowserModule,
+		BrowserAnimationsModule,
 		HttpModule,
-		SharedModule,
-		CoreModule,
-		RouterModule.forRoot(ROUTES)
+		SharedModule.forRoot(),
+		RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })
 	],
-	providers: [CoreModule, { provide: LOCALE_ID, useValue: 'pt-BR' }],
+	providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
